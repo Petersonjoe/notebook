@@ -51,5 +51,5 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host=mirrors.aliyun.com
 ```
 
-Windows下，直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini。内容同上。
+Windows users can directly create folder as C:\Users\xx\pip, then create pip.ini
 
