@@ -53,3 +53,8 @@ trusted-host=mirrors.aliyun.com
 
 Windows users can directly create folder as C:\Users\xx\pip, then create pip.ini
 
+#### China-area-data
+
+Reach to this [repo](https://github.com/airyland/china-area-data)
+
+https://github.com/airyland/china-area-data
