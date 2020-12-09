@@ -149,7 +149,7 @@ try:
     print(driver.page_source)
 
     text = driver.page_source
-    with open('page_after_skipping_captcha.html',"w") as f:
+    with open('page_after_skipping_captcha.html',"w", encoding="utf-8") as f:
         _text = text.encode('utf-8').decode('unicode-escape')
         f.write(_text)
     
