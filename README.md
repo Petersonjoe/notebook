@@ -2,11 +2,11 @@
 This repo is for any notes in tech study.
 
 #### PBI free account application
-[PBI Hub](https://pbihub.cn/blog/190)
+ - [PBI Hub](https://pbihub.cn/blog/190)
 
 #### Free course website
-[Free course](https://courses.analyticsvidhya.com/)
-[Free ML course I enrolled](https://courses.analyticsvidhya.com/courses/take/get-started-with-scikit-learn-sklearn/texts/10754763-welcome-to-this-course)
+ - [Free course](https://courses.analyticsvidhya.com/)
+ - [Free ML course I enrolled](https://courses.analyticsvidhya.com/courses/take/get-started-with-scikit-learn-sklearn/texts/10754763-welcome-to-this-course)
 
 #### Sublime text 3 setting for unicode chars
 
