@@ -57,6 +57,8 @@
        - 按照key筛选重复数据，并插入临时表（表中不含以key为标识的重复数据）
        - 将重复数据在原表中删除
        - 将临时表数据插入到原表
+       - Teradata支持语法`qualify row_number() over(parition by col1 order by col2 desc) = 1`
+       
      - 如何处理null数据
        - 更改字符集、字段约束、字段长度等
        - 将不符合逻辑的原始数据存入一张dirty数据表中，以便业务部门检查
@@ -74,3 +76,40 @@
  13. 更新语句
      - update中尽量避免使用只有set的语句，尽量包含where条件
        即便更新的表只有一条记录，最好也在where条件中带上PI字段
+       
+ 14. 实例
+     Scenario: 有一个业务逻辑SQL跑的非常慢，如何调优？
+     
+     - 观察SQL内容
+       - select的字段
+       - join的字段
+         有无PI和非PI字段join，有无复杂转换/隐式转换？
+       - where条件
+         IN/NOT IN，子查询
+         
+     - 将 关联表 改为 子查询 来缩小join的数据量
+     - 将 关联表 改为 临时表 再join
+     - 对where条件的各条件进行逐一排查，观察是否哪一具体条件影响查询速度
+     - IN/NOT IN是否可用join条件替代
+     - 以上条件无发现情况下：
+       - 查询表的数据倾斜（skew）情况
+         - 数据表实际分布不存在skew --> collect statistics
+         - 数据表实际存在skew --> 查看执行计划：join条件是否有问题，join字段存在null值<将数据表按照join字段是否为null横向切分，分别join，再union all>
+         - join方式是否合适，broadcast大表小表分配是否存在错误等
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
