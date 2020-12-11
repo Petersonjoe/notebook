@@ -96,8 +96,10 @@
          - 数据表实际分布不存在skew --> collect statistics
          - 数据表实际存在skew --> 查看执行计划：join条件是否有问题，join字段存在null值<将数据表按照join字段是否为null横向切分，分别join，再union all>
          - join方式是否合适，broadcast大表小表分配是否存在错误等
- 
- 
+
+### Teradata 相关博客
+
+ - [程序园](http://www.voidcn.com/article/p-mznlyktd-bus.html)
  
  
  
