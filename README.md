@@ -7,6 +7,7 @@ This repo is for any notes in tech study.
 #### Free course website
  - [Free course](https://courses.analyticsvidhya.com/)
  - [Free ML course I enrolled](https://courses.analyticsvidhya.com/courses/take/get-started-with-scikit-learn-sklearn/texts/10754763-welcome-to-this-course)
+ - [Scikit-learn tutorial with real data set](https://scikit-learn.org/stable/auto_examples/applications/plot_outlier_detection_wine.html#sphx-glr-auto-examples-applications-plot-outlier-detection-wine-py)
 
 #### Sublime text 3 setting for unicode chars
 
