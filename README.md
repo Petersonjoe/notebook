@@ -1,5 +1,8 @@
-## notebook
+## NoteBook
 This repo is for any notes in tech study.
+
+#### Visualization materials
+ - [China map shape file](http://bbs.3s001.com/thread-133690-1-1.html)
 
 #### PBI free account application
  - [PBI Hub](https://pbihub.cn/blog/190)
