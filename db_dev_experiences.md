@@ -11,6 +11,8 @@
            将A或B的所有数据copy到每个AMP上，再进行join操作。执行计划决定copy哪张表。
          - **重分布(redistribute)**
            将A或B的数据，按照join字段（一般是非PI字段引起的）按照join字段的分布在每个AMP上重分布。
+    - **spool**消耗的大小
+    - **redistribution**重分布
 
 2. collect statistics
    <收集数据的统计信息作为执行计划优化器的参考，一般情况下，保持统计信息是最新的>
@@ -38,10 +40,36 @@
    - 查看执行计划，确认那一步使用较多的spool，可以尝试用volatile表分步计算，节省spool的一次性消耗
    
 7. primary index
-   - PI设置要合理，PI涉及到TD数据的物理存储
+   - PI设置要合理，PI涉及到TD数据的物理存储。PI一般设置在分布较均匀且经常用到的字段上。
+   - TD PI相关介绍
+     - [teradata PI-- 数据分布](https://blog.csdn.net/wali_wang/article/details/50493077)
+     - [teradata 预先探查数据分布](https://blog.csdn.net/wali_wang/article/details/50463107)
+   
 8. partition primary index
+   - 存在PII字段就尽量在where条件中使用，会极大加快查询速度。（例如，DW_OMS_ORDER表上，order_cre_dt为PII字段，如果不在where条件中使用，查询速度会非常慢）
+   
 9. set/multiset表
-10. 更新大表
-11. 删除临时表
-12. 避免使用IN/NOT IN
-13. 更新语句
+   - 尽量减少使用set表，每次都会查重，插入效率会非常低
+   - multiset表会有效地整合可能重复的数据，同时不会将完全重复的记录重复加载到表中
+   - 涉及的两种case处理
+     - TD中的去重操作
+       - 确定逻辑字段和数据记录的key（可唯一标识一条记录）
+       - 按照key筛选重复数据，并插入临时表（表中不含以key为标识的重复数据）
+       - 将重复数据在原表中删除
+       - 将临时表数据插入到原表
+     - 如何处理null数据
+       - 更改字符集、字段约束、字段长度等
+       - 将不符合逻辑的原始数据存入一张dirty数据表中，以便业务部门检查
+       
+ 10. 更新大表
+     - 将 update 转为 delete-insert    
+ 
+ 11. 删除临时表
+     - 及时删除临时表将节省更多空间和spool 
+
+ 12. 避免使用IN/NOT IN
+     - IN, NOT IN会触发全字段排序、扫描
+     - 如果IN的条件包含多个值，可以插入到一张临时表中，然后Inner join
+     
+ 13. 更新语句
+     - 
