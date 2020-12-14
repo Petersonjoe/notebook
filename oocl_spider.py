@@ -1,3 +1,14 @@
+### OOCL sample BL number ###
+# OOLU2587765200	孟加拉国
+# OOLU2587765120	孟加拉国
+# OOLU2587764920	孟加拉国
+# OOLU2594233450	孟加拉国
+# OOLU2594233000	孟加拉国
+# OOLU2594156090	印尼
+# OOLU2594234080	孟加拉国
+# OOLU2605530860	印尼
+# OOLU2606394120	印尼
+### OOCL sample BL number ###
 
 from random import randint
 from time import sleep
