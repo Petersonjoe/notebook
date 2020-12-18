@@ -29,3 +29,7 @@ In the build file, below content is the simplest one for settings:
 #### Windows Batch Schedule Tasks
 
  - [Batch Schedule Tasks](https://blog.csdn.net/qq_31176861/article/details/90901336)
+
+#### Tableau Public
+
+ - [Official Site](https://public.tableau.com/zh-cn/s/resources)
