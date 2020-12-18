@@ -100,9 +100,7 @@
 ### Teradata 相关博客
 
  - [程序园](http://www.voidcn.com/article/p-mznlyktd-bus.html)
- 
- 
- 
+ - [Teradata教程](https://www.tutorialspoint.com/teradata/teradata_hashing_algorithm.htm)
  
  
  
