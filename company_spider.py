@@ -175,6 +175,10 @@ class CompanySpider(object):
         """
         response_str = searchURL(BASIC_PAGE_PRE.format(pid=self.__pid__))
         response_dict = json.loads(response_str)
+        if response_dict['data'] is None:
+            return pd.DataFrame(
+                columns=['公司代码','公司名称','公司状态','公司类型','注册代码','税务代码','营业范围','注册地址','法人代表','注册日期','存续时间','注册资本','行业','电话','所在区域','监管当局','公司描述','关联风险总数']
+            )
         basic_data = response_dict['data']['basicData']
 
         # store the data into a dict
